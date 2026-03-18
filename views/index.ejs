@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NURUL HIDAYAH | Digital Excellence</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <link href="https://unpkg.com" rel="stylesheet">
+
+    <style>
+        :root {
+            --neon-spark: #00f2ff;
+            --ibm-blue: #0f62fe;
+        }
+
+        /* GRADASI BACKGROUND TIGA WARNA */
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background: linear-gradient(180deg, #ffffff 0%, #87ceeb 45%, #001d6c 100%);
+            background-attachment: fixed;
+            color: #161616;
+            min-height: 100vh;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* PROGRESS BAR TOP */
+        #progress-bar {
+            position: fixed;
+            top: 0; left: 0; width: 0%; height: 4px;
+            background: var(--neon-spark);
+            z-index: 100;
+            box-shadow: 0 0 10px var(--neon-spark);
+        }
+
+        /* EFEK 3D & ELECTRIC BORDER */
+        .frame-3d {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform-style: preserve-3d;
+            transition: transform 0.2s ease-out, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .frame-3d::after {
+            content: "";
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(transparent, var(--neon-spark), transparent 30%);
+            animation: rotate-border 4s linear infinite;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .frame-3d:hover::after { opacity: 1; }
+
+        @keyframes rotate-border {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* SPARK ANIMATION */
+        .spark {
+            position: fixed;
+            pointer-events: none;
+            background: var(--neon-spark);
+            border-radius: 50%;
+            z-index: 9999;
+            box-shadow: 0 0 15px var(--neon-spark);
+        }
+
+        .title-huge {
+            font-family: 'Orbitron', sans-serif;
+            color: #002d9c;
+            text-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="progress-bar"></div>
+
+    <header class="pt-32 pb-16 px-6 text-center">
+        <div data-aos="fade-down" class="mb-8">
+            <span class="px-8 py-3 bg-blue-900 text-white text-[11px] tracking-[0.5em] uppercase font-bold rounded-sm shadow-2xl floating">
+                Pendidikan Berbasis agama islam, formal & Teknologi
+            </span>
+        </div>
+        
+        <h1 class="title-huge text-6xl md:text-9xl font-extrabold mb-16 tracking-tighter" data-aos="zoom-in">
+            NURUL HIDAYAH
+        </h1>
+
+        <!-- MEGA HERO FRAME -->
+        <div class="max-w-7xl mx-auto px-4 mb-32" data-aos="fade-up">
+            <div class="frame-3d rounded-lg overflow-hidden group shadow-2xl border-4 border-white">
+                <div class="aspect-[21/9] relative">
+                    <img src="https://images.unsplash.com" 
+                         class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Main Archive">
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 to-transparent"></div>
+                    <div class="absolute bottom-12 left-12 text-left text-white">
+                        <p class="font-bold text-2xl md:text-4xl tracking-tight mb-2">SYSTEM_ARCHIVE_01</p>
+                        <div class="h-1 w-20 bg-cyan-400"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 space-y-40 pb-40">
+
+        <!-- 6 DOKUMENTASI -->
+        <section class="grid grid-cols-2 md:grid-cols-3 gap-12">
+            <% for(let i=1; i<=6; i++) { %>
+            <div class="frame-3d p-2 group bg-white/30" data-aos="fade-up" data-aos-delay="<%= i*100 %>">
+                <div class="aspect-video overflow-hidden rounded-sm">
+                    <img src="https://picsum.photos<%= i+50 %>/800/450" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Murid">
+                </div>
+                <div class="p-4 flex justify-between items-center">
+                    <span class="text-[10px] font-bold text-blue-900 tracking-widest">DATA_REC_<%= i %></span>
+                    <div class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></div>
+                </div>
+            </div>
+            <% } %>
+        </section>
+
+        <!-- VISI MISI -->
+        <section class="grid md:grid-cols-2 gap-16">
+            <div class="glass-card p-12 md:p-16 border-t-8 border-blue-600 rounded-xl" data-aos="fade-right">
+                <h2 class="text-blue-700 font-bold text-xs uppercase tracking-[0.3em] mb-6">KB NURUL HIDAYAH</h2>
+                <div class="space-y-8 text-gray-700 leading-relaxed text-justify">
+                    <p class="text-2xl text-blue-950 font-light italic border-l-4 border-cyan-400 pl-8">"Membentuk generasi Rabbani yang unggul, berakhlak mulia, dan adaptif terhadap perkembangan teknologi."</p>
+                    <div class="space-y-6 text-sm">
+                        <p><strong>PAI:</strong> Internalisasi nilai Islami melalui <em>Fun Learning</em>.</p>
+                        <p><strong>Teknologi:</strong> Multimedia interaktif untuk stimulasi kognitif anak.</p>
+                        <p><strong>TIK:</strong> Visualisasi konsep spiritual ke pengalaman belajar konkret.</p>
+                    </div>
+                    <div class="bg-blue-50 p-6 text-[11px] space-y-2 border border-blue-100">
+                        <p>• Pendidikan Karakter Berbasis Moral</p>
+                        <p>• Pengembangan Holistik & PAKEM</p>
+                        <p>• Lingkungan Aman & Kondusif</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-12 md:p-16 border-t-8 border-cyan-400 rounded-xl" data-aos="fade-left">
+                <h2 class="text-blue-700 font-bold text-xs uppercase tracking-[0.3em] mb-6">MI NURUL HIDAYAH</h2>
+                <div class="space-y-8 text-sm text-gray-700">
+                    <div class="grid gap-4">
+                        <div class="p-6 bg-white border-b-2 border-blue-50 hover:bg-blue-50 transition-colors">
+                            <h4 class="font-bold text-blue-900 text-xs mb-2 uppercase">Kurikulum Tarbiyah</h4>
+                            <p>Pembentukan adab, Madrasah Diniyah Takmiliyah, dan penguasaan Ulumuddin secara mendalam.</p>
+                        </div>
+                        <div class="p-6 bg-white border-b-2 border-blue-50 hover:bg-blue-50 transition-colors">
+                            <h4 class="font-bold text-blue-900 text-xs mb-2 uppercase">Islamic Environment</h4>
+                            <p>Menerapkan konsep Rahmatan lil 'Alamiin untuk kedamaian dan pembentukan karakter peserta didik.</p>
+                        </div>
+                    </div>
+                    <div class="pt-6 grid grid-cols-2 gap-4 text-center">
+                        <div class="p-4 border border-blue-100 rounded">
+                            <span class="block font-bold text-blue-900">Pedagogik</span>
+                            <span class="text-[9px] text-gray-400">Skill Mengajar</span>
+                        </div>
+                        <div class="p-4 border border-blue-100 rounded">
+                            <span class="block font-bold text-blue-900">Integritas</span>
+                            <span class="text-[9px] text-gray-400">Nilai Islami</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PENGELOLA -->
+        <section class="py-20">
+            <h2 class="text-center text-5xl font-black text-white mb-20 drop-shadow-2xl tracking-tighter" data-aos="fade-up">ELITE STAFF</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+                <% 
+                const staff = [
+                    {n: "IMAT JUNAEDAH.SPDI", j: "Kepala Sekolah"},
+                    {n: "ATANG ABDURAHMAN", j: "Manager"},
+                    {n: "MASPUPAH.SPD", j: "Sekertaris"},
+                    {n: "APIPULLOH ASHIDIQ.S.TI", j: "Operator"},
+                    {n: "SRI INDAH", j: "Guru"},
+                    {n: "NABILA FAUZIAH", j: "Guru"},
+                    {n: "SALWA NOVIYANTI", j: "Guru"},
+                    {n: "JAJANG NURJAMAN", j: "Bendahara"}
+                ];
+                staff.forEach((s, i) => { %>
+                <div class="text-center group" data-aos="zoom-in" data-aos-delay="<%= i*50 %>">
+                    <div class="frame-3d aspect-square rounded-full mb-6 flex items-center justify-center bg-white/20 border-white hover:border-cyan-400">
+                         <svg class="w-12 h-12 text-blue-900/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z""")/>></svg>
+                    </div>
+                    <h4 class="text-[11px] font-bold text-white uppercase tracking-wider group-hover:text-cyan-400 transition-colors"><%= s.n %></h4>
+                    <p class="text-[8px] text-white/50 font-bold uppercase mt-2 tracking-widest"><%= s.j %></p>
+                </div>
+                <% }) %>
+            </div>
+        </section>
+
+        <!-- SEJARAH -->
+        <section class="glass-card p-16 md:p-32 rounded-3xl relative overflow-hidden" data-aos="fade-up">
+            <div class="grid md:grid-cols-12 gap-20 items-center">
+                <div class="md:col-span-4 text-center">
+                    <div class="frame-3d p-3 bg-white rounded-lg rotate-3 shadow-2xl">
+                        <div class="aspect-[3/4] bg-blue-50 flex items-center justify-center font-bold text-blue-200">PHOTO</div>
+                    </div>
+                    <h3 class="mt-10 text-3xl font-bold text-blue-950">KH. MUSTOFA.MUI</h3>
+                </div>
+                <div class="md:col-span-8 text-xl font-light text-gray-700 leading-loose space-y-6">
+                    <h2 class="text-5xl font-black text-blue-950 mb-10">Legacy & Vision</h2>
+                    <p class="text-justify">Nurul Hidayah didirikan dengan tekad mulia KH. MUSTOFA untuk menyinergikan kecerdasan intelektual dan spiritual generasi muda Indonesia.</p>
+                    <p class="text-justify italic">"Setiap anak adalah amanah, dan sejarah kami adalah perjalanan panjang menjaga amanah tersebut."</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://unpkg.com"></script>
+    <script>
+        AOS.init({ duration: 1000, once: false });
+
+        // 1. PROGRESS BAR LOGIC
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+
+        // 2. MOUSE PARALLAX & ELECTRIC SYSTEM
+        document.querySelectorAll('.frame-3d').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+            });
+
+            // 3. ELECTRIC SPARK CLICK
+            card.addEventListener('click', (e) => {
+                for(let i=0; i<15; i++) {
+                    createSpark(e.clientX, e.clientY);
+                }
+            });
+        });
+
+        function createSpark(x, y) {
+            const spark = document.createElement('div');
+            spark.className = 'spark';
+            const size = Math.random() * 4 + 2;
+            spark.style.width = size + 'px';
+            spark.style.height = size + 'px';
+            spark.style.left = x + 'px';
+            spark.style.top = y + 'px';
+            document.body.appendChild(spark);
+
+            const destX = x + (Math.random() - 0.5) * 200;
+            const destY = y + (Math.random() - 0.5) * 200;
+
+            spark.animate([
+                { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                { transform: `translate(${destX - x}px, ${destY - y}px) scale(0)`, opacity: 0 }
+            ], {
+                duration: 500 + Math.random() * 500,
+                easing: 'cubic-bezier(0, .9, .57, 1)'
+            }).onfinish = () => spark.remove();
+        }
+    </script>
+</body>
+</html>
