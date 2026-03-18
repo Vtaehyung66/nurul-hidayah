@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NURUL HIDAYAH | Ultimate Masterpiece v9.0</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    
+    <!-- Heavy-Duty Animation Stack -->
+    <link href="https://unpkg.com" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com"></script>
+    <script src="https://cdnjs.cloudflare.com"></script>
+    <script src="https://cdn.jsdelivr.net"></script>
+
+    <style>
+        :root {
+            --ibm-blue: #0f62fe;
+            --neon-cyan: #00f2ff;
+            --navy-dark: #001d6c;
+            --sky-blue: #87ceeb;
+            --deep-navy: #001133;
+        }
+
+        /* 1. LAYERED BACKGROUND (TRI-TONE SOLID + GRID) */
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background: linear-gradient(180deg, 
+                #ffffff 0%, #ffffff 33.33%, 
+                var(--sky-blue) 33.33%, var(--sky-blue) 66.66%, 
+                var(--ibm-blue) 66.66%, var(--ibm-blue) 100%
+            );
+            background-attachment: fixed;
+            color: #161616;
+            min-height: 100vh;
+            overflow-x: hidden;
+            cursor: none; /* Custom Cursor Active */
+        }
+
+        #particles-js {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* 2. SCANLINE EFFECT (CYBER VIBE) */
+        .scanline {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: rgba(0, 242, 255, 0.15);
+            box-shadow: 0 0 20px var(--neon-cyan);
+            z-index: 100000;
+            pointer-events: none;
+            animation: moveScanline 8s linear infinite;
+        }
+
+        @keyframes moveScanline {
+            0% { top: -10%; }
+            100% { top: 110%; }
+        }
+
+        /* 3. MAGIC CURSOR (ADVANCED) */
+        #magic-cursor {
+            position: fixed;
+            width: 45px; height: 45px;
+            border: 2px solid var(--neon-cyan);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 200000;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #magic-cursor .dot {
+            width: 5px; height: 5px;
+            background: var(--neon-cyan);
+            border-radius: 50%;
+        }
+
+        /* 4. ULTIMATE IBM CARD (TILT & GLASS) */
+        .ibm-master-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            position: relative;
+            z-index: 10;
+            border-radius: 20px;
+        }
+
+        .ibm-master-card:hover {
+            transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) translateY(-20px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 60px 100px rgba(0, 242, 255, 0.25);
+        }
+
+        /* Internal Glow Animation */
+        .ibm-master-card::after {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, transparent, rgba(0, 242, 255, 0.3), transparent);
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .ibm-master-card:hover::after { opacity: 1; }
+
+        /* 5. TYPOGRAPHY - NAVY TITAN */
+        .title-giant {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--navy-dark);
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            line-height: 0.85;
+            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.1));
+        }
+
+        /* 6. SPARK PARTICLES (CLICK EFFECT) */
+        .spark-shard {
+            position: fixed;
+            pointer-events: none;
+            background: var(--neon-cyan);
+            border-radius: 2px;
+            z-index: 200001;
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        #scroll-tracker {
+            position: fixed; top: 0; left: 0; width: 0%; height: 8px;
+            background: linear-gradient(90deg, var(--navy-dark), var(--neon-cyan));
+            z-index: 200002;
+            box-shadow: 0 0 20px var(--neon-cyan);
+        }
+
+        /* 7. FLOATING OBJECTS */
+        .float-anim {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(1deg); }
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- FX LAYERS -->
+    <div id="scroll-tracker"></div>
+    <div class="scanline"></div>
+    <div id="particles-js"></div>
+    <div id="magic-cursor"><div class="dot"></div></div>
+
+    <!-- HEADER SECTION -->
+    <header class="pt-48 pb-24 px-6 text-center relative z-20">
+        <div data-aos="zoom-out" data-aos-duration="2000">
+            <span class="px-10 py-4 bg-blue-950 text-white text-[12px] tracking-[0.6em] uppercase font-bold rounded-sm shadow-[0_0_40px_rgba(0,0,0,0.2)] inline-block border-b-4 border-cyan-400 float-anim">
+                Pendidikan Berbasis agama islam, formal & Teknologi
+            </span>
+        </div>
+        
+        <!-- JUDUL NAVY PALING BESAR -->
+        <div class="mt-20 mb-32 overflow-hidden">
+            <h1 class="title-giant text-7xl md:text-[12rem] font-black" data-aos="fade-up" data-aos-duration="1500">
+                NURUL <br> <span class="text-blue-900">HIDAYAH</span>
+            </h1>
+        </div>
+
+        <!-- MEGA HERO FRAME (TILT ACTIVE) -->
+        <div class="max-w-7xl mx-auto px-4 mb-56" data-aos="fade-up" data-aos-delay="300">
+            <div class="ibm-master-card p-5 border-4 border-white shadow-[0_50px_100px_rgba(0,0,0,0.3)]">
+                <div class="aspect-[21/9] relative overflow-hidden rounded-xl">
+                    <img src="https://images.unsplash.com" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-[3s]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-900/20 to-transparent"></div>
+                    <div class="absolute bottom-16 left-16 text-left">
+                        <div class="h-1 w-24 bg-cyan-400 mb-6"></div>
+                        <p class="text-white font-bold text-5xl md:text-8xl tracking-tighter uppercase leading-none">Primary <br> Archive 01</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 space-y-72 pb-72 relative z-20">
+
+        <!-- 6 DOKUMENTASI (GRID INTERAKTIF) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <% for(let i=1; i<=6; i++) { %>
+            <div class="ibm-master-card p-4 group cursor-pointer" data-aos="zoom-in-up" data-aos-delay="<%= i*150 %>">
+                <div class="aspect-video overflow-hidden rounded-lg relative">
+                    <img src="https://picsum.photos<%= i+500 %>/800/450" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000">
+                    <div class="absolute inset-0 bg-blue-950/10 group-hover:bg-transparent"></div>
+                </div>
+                <div class="p-8 flex justify-between items-center bg-white/20 mt-4 rounded-lg">
+                    <span class="text-[11px] font-bold text-blue-950 tracking-[0.5em] uppercase">Sector_Record_0<%= i %></span>
+                    <div class="flex gap-2">
+                        <div class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </section>
+
+        <!-- VISI MISI LENGKAP (STYLE IBM ASLI) -->
+        <section class="grid md:grid-cols-2 gap-px bg-white/30 shadow-[0_60px_120px_rgba(0,0,0,0.15)] rounded-[4rem] overflow-hidden border-8 border-white/40">
+            <!-- KB Section -->
+            <div class="bg-white/90 p-20 md:p-32 space-y-16" data-aos="fade-right">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-px bg-blue-600"></div>
+                    <h2 class="text-blue-600 font-bold text-sm tracking-widest uppercase">Protocol Alpha: KB NURUL HIDAYAH</h2>
+                </div>
+                <h3 class="text-6xl font-black text-blue-950 tracking-tighter uppercase leading-none">PAUD / Kelompok <br> Bermain</h3>
+                
+                <div class="space-y-12 text-gray-700 leading-relaxed text-justify">
+                    <div class="text-2xl text-blue-900 font-light italic border-l-[16px] border-blue-600 pl-16 bg-blue-50 py-16 rounded-r-[3rem] shadow-xl">
+                        "Membentuk generasi Rabbani yang unggul, berakhlak mulia, dan adaptif terhadap perkembangan teknologi sejak usia dini."
+                    </div>
+                    <div class="space-y-10 text-lg">
+                        <p class="font-bold text-blue-800 flex items-start gap-4">
+                            <span class="text-3xl text-cyan-500">“</span>
+                            Menyelenggarakan pendidikan holistik yang mengintegrasikan nilai-nilai Tauhid dengan literasi digital dasar.
+                        </p>
+                        <div class="h-px w-full bg-gray-100"></div>
+                        <ul class="space-y-6 text-sm">
+                            <li class="flex gap-6">
+                                <span class="w-2 h-12 bg-cyan-400"></span>
+                                <div><strong>PAI:</strong> Internalisasi nilai Islami melalui metode <em>Fun Learning</em> yang relevan dengan perkembangan zaman.</div>
+                            </li>
+                            <li class="flex gap-6">
+                                <span class="w-2 h-12 bg-blue-600"></span>
+                                <div><strong>TIK:</strong> Implementasi kurikulum berbasis Teknologi untuk visualisasi konsep spiritual yang abstrak.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MI Section -->
+            <div class="bg-blue-50/70 p-20 md:p-32 space-y-16" data-aos="fade-left">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-px bg-blue-600"></div>
+                    <h2 class="text-blue-600 font-bold text-sm tracking-widest uppercase">Protocol Beta: MI NURUL HIDAYAH</h2>
+                </div>
+                <h3 class="text-6xl font-black text-blue-950 tracking-tighter uppercase leading-none">Madrasah <br> Ibtidaiyah</h3>
+                
+                <div class="space-y-12">
+                    <div class="ibm-master-card p-12 bg-white border-b-[12px] border-blue-600 rounded-[2.5rem] shadow-2xl">
+                        <h4 class="font-bold text-blue-950 mb-6 uppercase text-[12px] tracking-widest border-b pb-4">Core Academic & Ulumuddin</h4>
+                        <p class="text-lg text-gray-600 leading-loose">Fokus utama pada pembentukan Adab, Madrasah Diniyah Takmiliyah, dan penguasaan disiplin ilmu agama secara mendalam.</p>
+                    </div>
+                    <div class="ibm-master-card p-12 bg-white border-b-[12px] border-cyan-400 rounded-[2.5rem] shadow-2xl">
+                        <h4 class="font-bold text-blue-950 mb-6 uppercase text-[12px] tracking-widest border-b pb-4">Global Environment</h4>
+                        <p class="text-lg text-gray-600 leading-loose">Lingkungan Rahmatan lil 'Alamiin: Pendidikan Islam pembawa kedamaian bagi semesta.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8 BINGKAI PENGELOLA (MAGNETIC PHYSICS) -->
+        <section>
+            <div class="text-center mb-32" data-aos="fade-up">
+                <h2 class="text-7xl font-black text-white tracking-tighter uppercase mb-8 drop-shadow-2xl">Structural Hierarchy</h2>
+                <div class="h-2 w-64 bg-gradient-to-r from-cyan-400 via-white to-cyan-400 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-20">
+                <% 
+                const staff = [
+                    {n: "IMAT JUNAEDAH.SPDI", j: "Kepala Sekolah"},
+                    {n: "ATANG ABDURAHMAN", j: "Manager"},
+                    {n: "MASPUPAH.SPD", j: "Sekertaris"},
+                    {n: "APIPULLOH ASHIDIQ.S.TI", j: "Operator"},
+                    {n: "SRI INDAH", j: "Guru"},
+                    {n: "NABILA FAUZIAH", j: "Guru"},
+                    {n: "SALWA NOVIYANTI", j: "Guru"},
+                    {n: "JAJANG NURJAMAN", j: "Bendahara"}
+                ];
+                staff.forEach((s, i) => { %>
+                <div class="text-center group magnetic-target" data-aos="zoom-in" data-aos-delay="<%= i*80 %>">
+                    <div class="ibm-master-card p-6 mb-12 aspect-square rounded-full flex items-center justify-center bg-white overflow-hidden">
+                        <div class="w-full h-full rounded-full bg-gradient-to-br from-blue-50 to-white flex items-center justify-center text-blue-100 border-2 border-blue-50">
+                             <svg class="w-20 h-20 group-hover:scale-110 transition-transform duration-500 group-hover:text-blue-200" fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z""")/>></svg>
+                        </div>
+                    </div>
+                    <h4 class="font-bold text-[14px] tracking-[0.2em] text-white uppercase mb-3 drop-shadow-md"><%= s.n %></h4>
+                    <p class="text-[10px] text-cyan-300 font-bold uppercase tracking-[0.4em] opacity-80"><%= s.j %></p>
+                </div>
+                <% }) %>
+            </div>
+        </section>
+
+        <!-- SEJARAH PENDIRIAN (LEGACY MODE) -->
+        <section class="ibm-master-card p-24 md:p-40 rounded-[5rem] bg-white/95 shadow-[0_100px_200px_rgba(0,0,0,0.2)] border-b-[24px] border-blue-950 relative overflow-hidden" data-aos="fade-up">
+            <div class="absolute top-0 right-0 p-20 opacity-[0.03]">
+                <svg class="w-[40rem] h-[40rem]" fill="currentColor" viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z""")/>></svg>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-32 items-center relative z-10">
+                <div class="md:col-span-4 text-center">
+                    <div class="ibm-master-card p-6 rotate-3 bg-white shadow-2xl rounded-3xl scale-125">
+                        <div class="aspect-[3/4] bg-blue-50 flex items-center justify-center font-black text-blue-100 text-sm tracking-[0.5em] uppercase">Archive_01</div>
+                    </div>
+                    <h3 class="mt-24 text-5xl font-black text-blue-950 tracking-tighter uppercase leading-none">KH. MUSTOFA.MUI</h3>
+                    <p class="text-blue-600 text-sm font-bold tracking-[0.6em] uppercase mt-6">Visionary Founder</p>
+                </div>
+
+                <div class="md:col-span-8 space-y-16 text-gray-800 leading-loose text-2xl font-light">
+                    <h2 class="text-7xl font-black text-blue-950 mb-20 tracking-tighter border-l-[16px] border-blue-700 pl-16">Genesis & Legacy</h2>
+                    <p class="text-justify italic text-blue-900 bg-blue-50/50 p-16 rounded-[3rem] shadow-inner border-r-[16px] border-blue-600">"Ponpes Nurul Hidayah didirikan dengan tekad mulia KH. MUSTOFA untuk menyinergikan kecerdasan intelektual dan spiritual generasi muda Indonesia di bawah naungan nilai Tauhid."</p>
+                    <p class="text-justify">"Beliau percaya bahwa setiap anak adalah amanah, dan sejarah kami adalah perjalanan panjang dalam menjaga amanah tersebut untuk masa depan yang lebih baik."</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-60 text-center text-white relative z-20">
+        <div class="max-w-4xl mx-auto px-6 opacity-40">
+            <p class="font-bold tracking-[1.5em] text-[12px] mb-12 uppercase">Elite Digital Infrastructure — Nurul Hidayah System v9.0</p>
+            <div class="flex justify-center gap-24 text-[11px] font-black uppercase tracking-[0.8em]">
+                <span class="text-cyan-400">Faith</span>
+                <span>•</span>
+                <span class="text-white">Formal</span>
+                <span>•</span>
+                <span class="text-cyan-400">Tech</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com"></script>
+    <script>
+        AOS.init({ duration: 2000, once: true, easing: 'ease-out-back' });
+
+        // 1. ADVANCED PARTICLES
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 120, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#00f2ff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.4 },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#00f2ff", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true, "straight": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }
+            }
+        });
+
+        // 2. MAGIC CURSOR FIX (ALWAYS ON TOP)
+        const cursor = document.getElementById('magic-cursor');
+        document.addEventListener('mousemove', e => {
+            gsap.to(cursor, {
+                x: e.clientX - 22,
+                y: e.clientY - 22,
+                duration: 0.1,
+                ease: "power2.out"
+            });
+        });
+
+        // 3. MAGNETIC EFFECT FOR STAFF
+        const magnetics = document.querySelectorAll('.magnetic-target');
+        magnetics.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.3 });
+            });
+            btn.addEventListener('mouseleave', () => {
+                gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+            });
+        });
+
+        // 4. SCROLL PROGRESS
+        window.onscroll = () => {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-tracker").style.width = scrolled + "%";
+        };
+
+        // 5. MASIVE ELECTRIC SHARDS CLICK
+        document.addEventListener('mousedown', (e) => {
+            for(let i=0; i<30; i++) {
+                const shard = document.createElement('div');
+                shard.className = 'spark-shard';
+                const s = Math.random() * 10 + 2;
+                shard.style.width = `${s}px`;
+                shard.style.height = `2px`;
+                shard.style.left = `${e.clientX}px`;
+                shard.style.top = `${e.clientY}px`;
+                document.body.appendChild(shard);
+
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = Math.random() * 400 + 100;
+                
+                shard.animate([
+                    { transform: `rotate(${angle}rad) translate(0, 0)`, opacity: 1 },
+                    { transform: `rotate(${angle}rad) translate(${velocity}px, 0) scaleX(2)`, opacity: 0 }
+                ], { duration: 1200, easing: 'cubic-bezier(0, .9, .57, 1)' }).onfinish = () => shard.remove();
+            }
+        });
+    </script>
+</body>
+</html>
