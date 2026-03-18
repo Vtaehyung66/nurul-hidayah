@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NURUL HIDAYAH SCHOOL - Official Profile</title>
+    
+    <!-- Framework & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com" rel="stylesheet">
+    <script src="https://unpkg.com"></script>
+
+    <style>
+        :root {
+            --neon-blue: #00d2ff;
+            --deep-navy: #040b1a;
+            --accent-glow: rgba(0, 210, 255, 0.3);
+        }
+
+        body {
+            background-color: var(--deep-navy);
+            background-image: 
+                radial-gradient(circle at 50% 0%, #102a4d 0%, transparent 50%),
+                linear-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 210, 255, 0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+            font-family: 'Rajdhani', sans-serif;
+            color: #d1d5db;
+            overflow-x: hidden;
+        }
+
+        .font-header { font-family: 'Orbitron', sans-serif; }
+
+        /* Bingkai Futuristik */
+        .cyber-frame {
+            background: rgba(10, 25, 47, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            position: relative;
+            clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
+        }
+
+        .cyber-frame::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 10px; height: 10px;
+            border-top: 2px solid var(--neon-blue);
+            border-left: 2px solid var(--neon-blue);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.7), 0 0 20px rgba(0, 210, 255, 0.4);
+        }
+
+        .photo-slot {
+            background: linear-gradient(45deg, #0f172a, #1e293b);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Dekorasi Hexagon ala Foto */
+        .hex-bg {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.1;
+            filter: blur(1px);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <!-- Header Section -->
+    <header class="max-w-6xl mx-auto text-center mb-16" data-aos="fade-down">
+        <div class="inline-block px-4 py-1 border border-blue-500/30 text-[10px] tracking-[0.5em] text-blue-400 mb-4 font-header">
+            PALESTINA CONNECTED
+        </div>
+        <h1 class="text-3xl md:text-6xl font-header font-bold text-white tracking-tighter glow-text mb-2">
+            NURUL HIDAYAH SCHOOL
+        </h1>
+        <div class="w-1/3 h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"></div>
+    </header>
+
+    <main class="max-w-6xl mx-auto space-y-20">
+
+        <!-- 1. Dokumentasi Utama (Bingkai Besar) -->
+        <section data-aos="zoom-in-up">
+            <div class="cyber-frame p-3 md:p-6 border-2 border-blue-400/20">
+                <div class="photo-slot aspect-[16/7] w-full flex items-center justify-center relative overflow-hidden group">
+                    <img src="https://images.unsplash.com" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Documentation">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
+                    <span class="relative z-10 font-header text-blue-300 tracking-widest text-sm md:text-xl border-y border-blue-400/50 py-2 px-6 bg-black/40">
+                        DOCUMENTATION AREA
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Grid Guru (8 Bingkai Kecil) -->
+        <section>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <% 
+                const staff = [
+                    {n: "IMAT JUNAEDAH.SPDI", j: "Kepala Sekolah/Pengelola"},
+                    {n: "ATANG ABDURAHMAN", j: "Manager/Pengelola"},
+                    {n: "MASPUPAH.SPD", j: "Guru/Sekertaris"},
+                    {n: "APIPULLOH ASHIDIQ.S.TI", j: "Operator"},
+                    {n: "SRI INDAH", j: "Guru"},
+                    {n: "NABILA FAUZIAH", j: "Guru"},
+                    {n: "SALWA NOVIYANTI", j: "Guru"},
+                    {n: "STAFF PENGAJAR", j: "Guru"}
+                ];
+                staff.forEach((item, index) => { %>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="<%= index * 100 %>">
+                    <div class="cyber-frame p-2 mb-3 group hover:border-blue-400 transition-all duration-300">
+                        <div class="photo-slot aspect-square flex items-center justify-center overflow-hidden">
+                             <!-- Placeholder Avatar -->
+                             <svg class="w-16 h-16 text-blue-900/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z""")/>></svg>
+                        </div>
+                    </div>
+                    <h3 class="text-[11px] font-header text-white font-bold leading-tight uppercase px-2"><%= item.n %></h3>
+                    <p class="text-[9px] text-blue-400 font-medium tracking-wider uppercase mt-1"><%= item.j %></p>
+                </div>
+                <% }) %>
+            </div>
+        </section>
+
+        <!-- 3. Visi Misi - Detail Program -->
+        <section class="grid md:grid-cols-2 gap-10">
+            <!-- KB Section -->
+            <div class="cyber-frame p-8" data-aos="fade-right">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 bg-blue-500/20 rounded flex items-center justify-center border border-blue-400">
+                        <span class="text-blue-400 font-bold">01</span>
+                    </div>
+                    <h2 class="font-header text-xl text-white">KB NURUL HIDAYAH</h2>
+                </div>
+                <div class="space-y-4 text-sm text-slate-300 leading-relaxed">
+                    <p class="italic text-blue-200 border-l-2 border-blue-500 pl-4 bg-blue-500/5 py-2">
+                        "Membentuk generasi Rabbani yang unggul, berakhlak mulia, dan adaptif terhadap perkembangan teknologi sejak usia dini."
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex gap-2">
+                            <span class="text-blue-400">▶</span>
+                            <span><b>Pendidikan Agama:</b> Fun learning yang relevan dengan zaman.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-blue-400">▶</span>
+                            <span><b>Teknologi:</b> Multimedia interaktif sebagai stimulasi kognitif.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-blue-400">▶</span>
+                            <span><b>Metode:</b> Kurikulum berbasis TIK untuk visualisasi nilai spiritual.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- MI Section -->
+            <div class="cyber-frame p-8" data-aos="fade-left">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 bg-emerald-500/20 rounded flex items-center justify-center border border-emerald-400">
+                        <span class="text-emerald-400 font-bold">02</span>
+                    </div>
+                    <h2 class="font-header text-xl text-white">MADRASAH IBTIDAIYAH</h2>
+                </div>
+                <div class="space-y-4 text-sm text-slate-300 leading-relaxed">
+                    <p class="font-bold text-emerald-300">Akademik & Kurikulum Keislaman:</p>
+                    <div class="grid grid-cols-2 gap-2 text-[11px]">
+                        <div class="p-2 bg-white/5 border border-white/10">TARBIYAH & TA'DIB</div>
+                        <div class="p-2 bg-white/5 border border-white/10">ULUMUDDIN</div>
+                        <div class="p-2 bg-white/5 border border-white/10">PEDAGOGIK</div>
+                        <div class="p-2 bg-white/5 border border-white/10">PROFESIONALISME</div>
+                    </div>
+                    <p class="text-xs pt-2 border-t border-emerald-900/50">Fokus pada pembentukan karakter peserta didik melalui lingkungan Rahmatan lil 'Alamiin.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Sejarah Pendirian (Sesuai Layout Bawah) -->
+        <section class="text-center relative py-20" data-aos="zoom-in">
+            <!-- Background Decoration -->
+            <div class="absolute inset-0 flex justify-center items-center -z-10 opacity-20">
+                <div class="w-[500px] h-[500px] border border-blue-500 rounded-full animate-pulse"></div>
+            </div>
+
+            <h2 class="font-header text-3xl text-white mb-12 glow-text">SEJARAH PENDIRIAN</h2>
+            
+            <!-- Foto Pendiri -->
+            <div class="mb-10 inline-block">
+                <div class="w-48 h-56 cyber-frame p-3 mx-auto relative group">
+                    <div class="photo-slot w-full h-full bg-slate-900 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <span class="text-[10px] text-blue-500 uppercase tracking-[0.3em]">Photo Pendiri</span>
+                    </div>
+                </div>
+                <p class="mt-6 font-header text-blue-400 tracking-widest uppercase">KH. MUSTOFA.MUI</p>
+                <p class="text-[10px] text-slate-500">PENDIRI UTAMA</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto cyber-frame p-8 md:p-12 text-sm text-slate-300 leading-loose text-center bg-black/60 shadow-2xl">
+                <p class="first-letter:text-4xl first-letter:font-header first-letter:text-blue-500 first-letter:mr-1">
+                    Ponpes Nurul Hidayah didirikan dengan sebuah tekad mulia: memberikan akses pendidikan berkualitas yang mampu menyinergikan kecerdasan intelektual dan kedalaman spiritual. 
+                    Berawal dari visi sederhana seorang tokoh ulama indonesia <span class="text-white border-b border-blue-500">KH. MUSTOFA</span>, yang peduli terhadap masa depan generasi muda, sekolah ini tumbuh dari langkah-langkah kecil yang penuh perjuangan.
+                </p>
+                <p class="mt-6">
+                    Melalui komitmen kuat dari para pendiri, dukungan guru-guru yang berdedikasi, serta kepercayaan penuh dari masyarakat, Nurul Hidayah kini terus berkembang menjadi institusi yang tidak hanya mengajarkan ilmu pengetahuan, tetapi juga membentuk karakter. Beliau percaya bahwa setiap anak adalah amanah.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-20 py-10 text-center border-t border-blue-900/50">
+        <p class="font-header text-[10px] text-blue-500 tracking-[0.5em] animate-pulse">SECURED SYSTEM // NURUL HIDAYAH SCHOOL v2.0</p>
+    </footer>
+
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: false,
+            mirror: true
+        });
+    </script>
+</body>
+</html>
