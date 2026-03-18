@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NURUL HIDAYAH SCHOOL | CYBER-EDITION</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <link href="https://unpkg.com" rel="stylesheet">
+    
+    <style>
+        :root {
+            --neon-blue: #00f2ff;
+            --dark-bg: #020617;
+            --glass: rgba(0, 242, 255, 0.03);
+            --border-blue: rgba(0, 242, 255, 0.4);
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            background-image: 
+                radial-gradient(circle at 50% 50%, #082f49 0%, transparent 80%),
+                linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            font-family: 'Rajdhani', sans-serif;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .font-cyber { font-family: 'Orbitron', sans-serif; }
+
+        /* Neon Glow Effects */
+        .neon-text { text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue); }
+        .neon-border { border: 1px solid var(--border-blue); box-shadow: 0 0 15px rgba(0, 242, 255, 0.2); }
+        
+        /* Cyber Card Shape */
+        .cyber-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-blue);
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+        }
+
+        .cyber-card::after {
+            content: "";
+            position: absolute;
+            top: 0; right: 0; width: 40px; height: 2px;
+            background: var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        /* Scanline Animation */
+        .scanline {
+            width: 100%; height: 2px;
+            background: rgba(0, 242, 255, 0.2);
+            position: fixed; top: 0; left: 0;
+            z-index: 100; pointer-events: none;
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        .hex-bg {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            background: rgba(0, 242, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+    <div class="scanline"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="max-w-7xl mx-auto">
+        
+        <!-- HEADER (Cyber Company Style) -->
+        <header class="flex flex-col md:flex-row justify-between items-center mb-20 border-b border-blue-500/30 pb-6" data-aos="fade-down">
+            <div class="text-left">
+                <p class="text-[10px] tracking-[0.8em] text-blue-400 font-cyber mb-2">INSTITUTION // SECURED</p>
+                <h1 class="text-4xl md:text-6xl font-cyber font-black text-white neon-text uppercase italic">NURUL HIDAYAH</h1>
+            </div>
+            <div class="mt-4 md:mt-0 text-right font-cyber text-[10px] text-blue-300">
+                <p>LATITUDE: 6.2088° S</p>
+                <p>LONGITUDE: 106.8456° E</p>
+                <p class="text-blue-500 animate-pulse">SYSTEM: ONLINE</p>
+            </div>
+        </header>
+
+        <!-- DOCUMENTATION AREA (Bingkai Besar) -->
+        <section class="mb-24" data-aos="zoom-in">
+            <div class="cyber-card p-4 relative group">
+                <div class="absolute top-4 left-4 z-20 bg-blue-600 text-white text-[10px] font-cyber px-3 py-1">LIVE FEED // DOCUMENTATION</div>
+                <div class="aspect-[21/9] bg-slate-900 overflow-hidden relative border border-blue-500/20">
+                    <img src="https://images.unsplash.com" class="w-full h-full object-cover opacity-40 group-hover:scale-105 transition duration-1000" alt="Cyber Documentation">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-20 h-20 border-2 border-blue-400 rounded-full animate-ping opacity-20"></div>
+                        <div class="absolute text-blue-400 font-cyber tracking-widest text-lg">BINGKAI DOKUMENTASI MURID</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEACHER PROFILES (8 Small Frames) -->
+        <section class="mb-32">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="h-[2px] w-20 bg-blue-500 shadow-[0_0_10px_#00f2ff]"></div>
+                <h2 class="font-cyber text-2xl text-white uppercase italic">Core Personnel</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <% 
+                const team = [
+                    {n: "Imat Junaedah.spdi", j: "Kepala Sekolah/Pengelola"},
+                    {n: "Atang Abdurahman", j: "Manager/Pengelola"},
+                    {n: "Maspupah.spd", j: "Guru/Sekertaris"},
+                    {n: "Apipulloh Ashidiq.s.ti", j: "Operator"},
+                    {n: "Sri Indah", j: "Guru"},
+                    {n: "Nabila Fauziah", j: "Guru"},
+                    {n: "Salwa Noviyanti", j: "Guru"},
+                    {n: "Staff Baru", j: "Guru"}
+                ];
+                team.forEach((m, i) => { %>
+                <div class="relative group" data-aos="fade-up" data-aos-delay="<%= i * 50 %>">
+                    <div class="cyber-card p-2 group-hover:neon-border transition-all">
+                        <div class="aspect-square bg-slate-800/50 mb-4 overflow-hidden relative">
+                             <div class="absolute inset-0 bg-blue-500/10 group-hover:bg-transparent"></div>
+                             <img src="https://api.dicebear.com<%= i %>" class="w-full h-full opacity-60">
+                        </div>
+                        <h3 class="font-cyber text-[10px] text-white font-bold tracking-tight truncate px-1"><%= m.n.toUpperCase() %></h3>
+                        <p class="text-[9px] text-blue-500 font-bold uppercase mt-1 px-1"><%= m.j %></p>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </section>
+
+        <!-- VISI MISI - DETAILED SECTION -->
+        <section class="grid lg:grid-cols-2 gap-12 mb-32">
+            
+            <!-- 1. KB NURUL HIDAYAH -->
+            <div class="cyber-card p-8 border-l-4 border-blue-500" data-aos="fade-right">
+                <h2 class="font-cyber text-xl text-blue-400 mb-6 flex items-center gap-3">
+                    <span class="p-2 bg-blue-500/10 border border-blue-500">01</span>
+                    KB NURUL HIDAYAH
+                </h2>
+                <div class="space-y-6 text-sm text-slate-300">
+                    <div class="p-4 bg-blue-500/5 border-l border-blue-500 italic text-blue-100">
+                        "Membentuk generasi Rabbani yang unggul, berakhlak mulia, dan adaptif terhadap perkembangan teknologi sejak usia dini."
+                    </div>
+                    <p class="text-blue-400 font-bold border-b border-blue-900 pb-2">"Menyelenggarakan pendidikan holistik yang mengintegrasikan nilai-nilai Tauhid dengan literasi digital dasar guna membekali anak menghadapi tantangan zaman."</p>
+                    
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-white uppercase text-xs tracking-widest">Deskripsi Program Modern:</h4>
+                        <div class="grid gap-3">
+                            <div class="p-3 bg-white/5 border border-white/10 group hover:border-blue-500 transition">
+                                <p class="text-blue-300 font-bold text-xs mb-1">Pendidikan Agama Islam (PAI):</p>
+                                <p class="text-[11px]">Internalisasi nilai Islami & akhlakul karimah melalui metode fun learning yang relevan.</p>
+                            </div>
+                            <div class="p-3 bg-white/5 border border-white/10 group hover:border-blue-500 transition">
+                                <p class="text-blue-300 font-bold text-xs mb-1">Pengenalan Teknologi:</p>
+                                <p class="text-[11px]">Multimedia Interaktif sebagai stimulasi kognitif & literasi digital aman.</p>
+                            </div>
+                            <div class="p-3 bg-white/5 border border-white/10 group hover:border-blue-500 transition">
+                                <p class="text-blue-300 font-bold text-xs mb-1">Metode Gabungan (TIK):</p>
+                                <p class="text-[11px]">Visualisasi konsep spiritual abstrak menjadi pengalaman belajar konkret & menyenangkan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 pt-4 border-t border-blue-900">
+                         <h4 class="font-bold text-white uppercase text-xs tracking-widest">Visi Karakter Anak:</h4>
+                         <p class="text-[11px]">"Terwujudnya anak didik yang berakhlak mulia, cerdas, kreatif, mandiri, dan berkarakter, serta siap memasuki jenjang pendidikan dasar."</p>
+                         <p class="text-[11px]">"Menciptakan generasi yang sehat, ceria, beriman, dan bertakwa sejak dini."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. MI NURUL HIDAYAH -->
+            <div class="cyber-card p-8 border-l-4 border-cyan-500" data-aos="fade-left">
+                <h2 class="font-cyber text-xl text-cyan-400 mb-6 flex items-center gap-3">
+                    <span class="p-2 bg-cyan-500/10 border border-cyan-500">02</span>
+                    MADRASAH IBTIDAIYAH
+                </h2>
+                <div class="space-y-6 text-sm text-slate-300">
+                    <div class="grid grid-cols-2 gap-3 mb-6">
+                        <div class="p-3 bg-cyan-950/20 border border-cyan-500/30 text-center font-bold text-[10px] text-cyan-300">TARBIYAH/TA'LIM</div>
+                        <div class="p-3 bg-cyan-950/20 border border-cyan-500/30 text-center font-bold text-[10px] text-cyan-300">ULUMUDDIN</div>
+                        <div class="p-3 bg-cyan-950/20 border border-cyan-500/30 text-center font-bold text-[10px] text-cyan-300">RAHMATAN LIL ALAMIIN</div>
+                        <div class="p-3 bg-cyan-950/20 border border-cyan-500/30 text-center font-bold text-[10px] text-cyan-300">ADAB & AKHLAK</div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <p class="text-white font-bold italic">"Kompetensi Profesional Pendidik:"</p>
+                        <ul class="space-y-2 text-[11px] list-disc ml-5">
+                            <li><b class="text-cyan-400">Pedagogik:</b> Keterampilan mengajar efektif.</li>
+                            <li><b class="text-cyan-400">Profesional Keilmuan:</b> Penguasaan materi agama mendalam.</li>
+                            <li><b class="text-cyan-400">Akhlakul Karimah:</b> Menjadi teladan (uswah) utama.</li>
+                            <li><b class="text-cyan-400">Integritas:</b> Profesionalisme berbasis nilai keislaman.</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-4 bg-cyan-500/5 border border-cyan-900 rounded-lg">
+                        <h4 class="font-bold text-white mb-2 text-xs">Strategi PAKEM:</h4>
+                        <p class="text-[11px]">Melaksanakan metode pembelajaran Aktif, Kreatif, Efektif, Inovatif, dan Menyenangkan untuk optimasi potensi kognitif, bahasa, dan sosial-emosional.</p>
+                    </div>
+
+                    <div class="pt-4 border-t border-cyan-900 flex justify-between items-center text-[10px] text-cyan-600 font-cyber">
+                        <span>DATA_SECURED: YES</span>
+                        <span>STATUS: HIGH_PRIORITY</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HISTORY SECTION (Pendiri) -->
+        <section class="mb-20 text-center relative" data-aos="fade-up">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-cyber text-3xl text-white mb-12 italic neon-text underline decoration-blue-500 underline-offset-8">SEJARAH PENDIRIAN</h2>
+                
+                <div class="relative inline-block mb-12">
+                    <div class="hex-bg w-48 h-56 mx-auto flex items-center justify-center p-1">
+                        <div class="w-full h-full bg-slate-900 flex items-center justify-center overflow-hidden">
+                             <div class="text-[10px] font-cyber text-blue-500">FOTO PENDIRI</div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-max bg-blue-600 px-4 py-1 font-cyber text-xs">KH. MUSTOFA.MUI</div>
+                </div>
+
+                <div class="cyber-card p-10 text-justify text-slate-300 leading-relaxed bg-blue-950/20">
+                    <p class="mb-4">
+                        "Ponpes Nurul Hidayah didirikan dengan sebuah tekad mulia: memberikan akses pendidikan berkualitas yang mampu menyinergikan kecerdasan intelektual dan kedalaman spiritual. 
+                        Berawal dari visi sederhana seorang tokoh ulama indonesia <span class="text-blue-400 font-bold">KH.MUSTOFA</span>, yang peduli terhadap masa depan generasi muda, sekolah ini tumbuh dari langkah-langkah kecil yang penuh perjuangan."
+                    </p>
+                    <p>
+                        "Melalui komitmen kuat dari para pendiri, dukungan guru-guru yang berdedikasi, serta kepercayaan penuh dari masyarakat, Nurul Hidayah kini terus berkembang menjadi institusi yang tidak hanya mengajarkan ilmu pengetahuan, tetapi juga membentuk karakter. Beliau percaya bahwa setiap anak adalah amanah, dan sejarah kami adalah perjalanan panjang dalam menjaga amanah tersebut untuk generasi yang lebih baik."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="py-12 border-t border-blue-900/50 flex flex-col md:flex-row justify-between items-center opacity-50 font-cyber text-[10px]">
+            <p>© 2026 NURUL HIDAYAH SCHOOL PROTOCOL. ALL RIGHTS RESERVED.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <span>ENCRYPTION: AES-256</span>
+                <span>SYSTEM VERSION: 4.0.1</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out-sine',
+            once: false,
+            mirror: true
+        });
+    </script>
+</body>
+</html>
