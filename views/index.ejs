@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NURUL HIDAYAH | CYBER SYSTEM v6.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net"></script>
+    <style>
+        body { background: #000c1d; color: #add8e6; overflow-x: hidden; font-family: 'Courier New', monospace; cursor: crosshair; }
+        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        
+        /* Bingkai Custom: Atas Bulat, Bawah Tajam */
+        .cyber-box {
+            background: rgba(1, 28, 50, 0.85);
+            border: 2px solid #00f2ff;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+            border-radius: 30px 30px 0 0;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+            position: relative; transition: 0.3s; z-index: 10;
+        }
+        .cyber-box:hover { box-shadow: 0 0 35px #00f2ff; transform: translateY(-5px); }
+
+        /* Peta Palestina Binary */
+        .palestine-binary {
+            position: absolute; top: 20px; left: 20px; font-size: 8px; line-height: 8px;
+            color: #00ff00; opacity: 0.6; pointer-events: none; z-index: 100;
+        }
+
+        /* Bingkai Logo Bulat */
+        .logo-circle {
+            position: absolute; top: 20px; right: 20px; width: 80px; height: 80px;
+            border: 2px solid #00f2ff; border-radius: 50%; box-shadow: 0 0 15px #00f2ff;
+            background: rgba(1, 28, 50, 0.8); z-index: 100; display: flex; align-items: center; justify-content: center;
+        }
+
+        /* Animasi Binary HIJAU */
+        .bin-char {
+            position: fixed; color: #00ff00; font-weight: bold; pointer-events: none;
+            text-shadow: 0 0 8px #00ff00; z-index: 1000; animation: explode 0.8s ease-out forwards;
+        }
+        @keyframes explode {
+            0% { transform: translate(0, 0) scale(1.5); opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)) rotate(360deg) scale(0); opacity: 0; }
+        }
+        .neon-blue { text-shadow: 0 0 15px #00f2ff; color: #00f2ff; }
+    </style>
+</head>
+<body onmousedown="spawnBinary(event)">
+    <div id="particles-js"></div>
+
+    <!-- Peta Palestina Binary (Bypass Design) -->
+    <div class="palestine-binary">
+        1010101010101<br>0111111111010<br>1011111110101<br>0111111111010<br>1011111110101<br>0101010101010
+    </div>
+
+    <!-- Logo Frame -->
+    <div class="logo-circle">
+        <span class="text-[10px] font-bold text-center">LOGO<br>SECURE</span>
+    </div>
+
+    <div class="container mx-auto px-6 py-10 relative z-50">
+        <!-- Judul Center Atas -->
+        <header class="text-center mb-16">
+            <h1 class="text-5xl font-black neon-blue tracking-[0.3em] uppercase italic">NURUL HIDAYAH SCHOOL</h1>
+            <div class="h-1 w-64 mx-auto bg-gradient-to-r from-transparent via-cyan-400 to-transparent mt-2"></div>
+        </header>
+
+        <!-- 6 Bingkai Dokumentasi Besar -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+            <script>
+                for(let i=1; i<=6; i++) {
+                    document.write(`
+                        <div class="cyber-box p-2">
+                            <div class="bg-cyan-950 h-56 flex items-center justify-center rounded-t-[28px] overflow-hidden relative">
+                                <div class="absolute inset-0 bg-[url('https://source.unsplash.com')] bg-cover opacity-30"></div>
+                                <span class="relative z-10 text-xs tracking-widest font-black uppercase neon-blue">DOKUMENTASI_${i}</span>
+                            </div>
+                        </div>
+                    `);
+                }
+            </script>
+        </div>
+
+        <!-- 8 BINGKAI GURU -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24">
+            <script>
+                const teachers = [
+                    {n: "IMAT JUNAEDAH.SPDI", r: "KEPALA SEKOLAH"},
+                    {n: "ATANG ABDURAHMAN", r: "MANAGER"},
+                    {n: "MASPUPAH.SPD", r: "GURU/SEKERTARIS"},
+                    {n: "APIPULLOH ASHIDIQ.S.TI", r: "OPERATOR"},
+                    {n: "SRI INDAH", r: "GURU"},
+                    {n: "NABILA FAUZAIAH", r: "GURU"},
+                    {n: "SALWA NOVIYANTI", r: "GURU"},
+                    {n: "GURU_ACTIVE", r: "GURU"}
+                ];
+                teachers.forEach(t => {
+                    document.write(`
+                        <div class="group">
+                            <div class="cyber-box p-1 mb-2">
+                                <div class="bg-cyan-900/40 h-32 flex items-center justify-center rounded-t-[25px] overflow-hidden">
+                                     <img src="https://api.dicebear.com{t.n}" class="w-16 h-16 opacity-80 group-hover:scale-110 transition">
+                                </div>
+                            </div>
+                            <div class="bg-cyan-400 text-black text-[8px] font-black py-1 tracking-widest text-center uppercase">
+                                ${t.n}<br><span class="text-[6px] opacity-70">${t.r}</span>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+        </div>
+
+        <!-- VISI & MISI & SEJARAH (Data Lengkap) -->
+        <div class="grid md:grid-cols-2 gap-10 mb-24">
+            <div class="cyber-box p-8 border-l-4 border-cyan-400">
+                <h3 class="text-xl font-black mb-4 italic underline neon-blue">VISI & MISI</h3>
+                <p class="text-[10px] leading-relaxed italic text-cyan-100">"Membentuk generasi Rabbani yang unggul, berakhlak mulia, dan adaptif terhadap perkembangan teknologi sejak usia dini."</p>
+            </div>
+            <div class="cyber-box p-8 border-r-4 border-cyan-400">
+                <h3 class="text-xl font-black mb-4 italic underline neon-blue">SEJARAH PENDIRIAN</h3>
+                <p class="text-[10px] leading-relaxed text-justify opacity-80 italic">"Ponpes Nurul Hidayah didirikan dengan tekad mulia KH. MUSTOFA untuk menyinergikan kecerdasan intelektual dan kedalaman spiritual."</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // BACKGROUND PARTIKEL PUTIH (Wajib Ada)
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 130 },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.6 },
+                "size": { "value": 3 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 3 }
+            }
+        });
+
+        // ANIMASI BINARY HIJAU
+        function spawnBinary(e) {
+            for(let i=0; i<20; i++) {
+                const b = document.createElement('div');
+                b.className = 'bin-char';
+                b.innerText = Math.random() > 0.5 ? "1" : "0";
+                const tx = (Math.random() - 0.5) * 350 + "px";
+                const ty = (Math.random() - 0.5) * 350 + "px";
+                b.style.setProperty('--tx', tx); b.style.setProperty('--ty', ty);
+                b.style.left = e.clientX + "px"; b.style.top = e.clientY + "px";
+                document.body.appendChild(b);
+                setTimeout(() => b.remove(), 800);
+            }
+        }
+    </script>
+</body>
+</html>
